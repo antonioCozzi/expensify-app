@@ -8,7 +8,7 @@ module.exports = (env) => {
      return {
           entry: './src/app.js',
           output: {
-               path: path.join(__dirname, 'public'), //absolute path: the one for the pjt on your machine. Così facendo, diciamo di prendere la directory automaticamente e di mergiarla con la cartella public
+               path: path.join(__dirname, 'public', 'dist'), //absolute path: the one for the pjt on your machine. Così facendo, diciamo di prendere la directory automaticamente e di mergiarla con la cartella public
                filename: 'bundle.js'
           },
           module: {
@@ -43,7 +43,8 @@ module.exports = (env) => {
           devtool: isProduction ? 'source-map' : 'inline-source-map',//reindirizza, se ci sono errori in console, al componente dove è l'errore
           devServer: {
                contentBase: path.join(__dirname, 'public'),
-               historyApiFallback: true
+               historyApiFallback: true,
+               publicPath: '/dist/'
           }
      }
 }
