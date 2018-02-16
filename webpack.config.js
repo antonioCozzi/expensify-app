@@ -17,7 +17,7 @@ module.exports = (env) => {
      const CSSExtract = new ExtractTextPlugin('styles.css')
 
      return {
-          entry: './src/app.js',
+          entry: ['babel-polyfill', './src/app.js'],
           output: {
                path: path.join(__dirname, 'public', 'dist'), //absolute path: the one for the pjt on your machine. Così facendo, diciamo di prendere la directory automaticamente e di mergiarla con la cartella public
                filename: 'bundle.js'
